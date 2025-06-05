@@ -1,5 +1,5 @@
 {
-  "image": "codeany/templates-base-ubuntu",
+  "build": { "dockerfile": "Dockerfile" },
   "features": {
     "ghcr.io/devcontainers/features/common-utils:1": {
       "installZsh": "true",

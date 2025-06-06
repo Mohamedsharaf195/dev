@@ -1,26 +1,17 @@
-FROM pdsouza/maruos:maru-0.7
+FROM gitpod/workspace-full
 
-# extra deps
-RUN apt-get update && apt-get -q -y install \
-    sudo fuse \
-&& apt-get clean \
-&& rm -rf /var/lib/apt/lists/*
-
-# create default user
-ARG user=mhs
-ARG group=mhs
-ARG uid=1000
-ARG gid=1000
-RUN groupadd -g ${gid} ${group} \
-    && useradd -u ${uid} -g ${gid} -m -s /bin/bash ${user} \
-    && adduser ${user} sudo && echo "${user} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/90-marudev
-
-# drop root privileges
-USER ${user}
-ENV USER=${user}
-WORKDIR /home/${user}
-
-# get repo
-RUN mkdir ~/.bin && echo 'export PATH=~/.bin:$PATH' > ~/.bashrc \
-    && curl https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo \
-    && chmod a+x ~/.bin/repo
+# Dependences for chrome
+RUN sudo apt-get update \
+ && sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
+   libgtk2.0-0 \
+   libgtk-3-0 \
+   libnotify-dev \
+   libgconf-2-4 \
+   libnss3 \
+   libxss1 \
+   libasound2 \
+   libxtst6 \
+   xauth \
+   xvfb \
+   fuse
+ && sudo rm -rf /var/lib/apt/lists/* 

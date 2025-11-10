@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote  name="mhs" fetch="https://github.com/MHS195" />
+  <remote  name="mhs195" fetch="https://github.com/Mohamedsharaf195" />
+  <!-- Devices -->
+  <project name="LineageOS/android_packages_resources_devicesettings" path="packages/resources/devicesettings" remote="github" revision="lineage-16.0" />
+  <project path="device/htc/oce" name="device_htc_oce" remote="mhs195" revision="halium" />
+  <project path="kernel/htc/oce" name="android_kernel_htc_oce" remote="mhs" revision="droidian" />
+  <project path="vendor/htc/oce" name="vendor_htc_oce" remote="mhs195" revision="oce" />
+  <project path="external/puffin" name="LineageOS/android_external_puffin" remote="github" revision="lineage-16.0" groups="pdk" />
+  <project path="external/jarjar" name="platform/external/jarjar" groups="pdk" remote="aosp" />
+  <project path="external/turbine" name="platform/external/turbine" groups="pdk" remote="aosp" />
+  <project path="prebuilts/r8" name="platform/prebuilts/r8" groups="pdk" clone-depth="1" remote="aosp" />
+</manifest>
